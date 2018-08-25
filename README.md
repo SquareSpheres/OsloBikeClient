@@ -8,6 +8,8 @@ For the delivery we were asked to show a list of stations, available locks, and 
 
 NOTE : The client is written so that it contains ALL the information supplied by the oslobysykkel API.
 
+Assumed workload 1-2 hours
+
 ## Usage
 
 `java -jar .\OsloBikes.jar "Client ID"`
