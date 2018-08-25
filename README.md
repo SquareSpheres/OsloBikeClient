@@ -12,10 +12,11 @@ NOTE : The client is written so that it contains ALL the information supplied by
 
 `java -jar .\OsloBikes.jar "Client ID"`
 
-or package the code yourself using maven
+alternatively you can package the code yourself using maven
 
 `mvn package`
 
+and run it the same way as described above.
 Make sure you are in the same directory as the pom.xml
 
 #### result 
