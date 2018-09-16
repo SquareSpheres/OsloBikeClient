@@ -1,6 +1,8 @@
 # OsloBikeWebService
 
-A simple REST Web Service using [OsloBikeCLient](https://github.com/SquareSpheres/OsloBikeClient) to fetch information from https://oslobysykkel.no/api/v1. The webservice supplies the same information as [OsloBikeCLient](https://github.com/SquareSpheres/OsloBikeClient) only as a web service instead of a local app.
+A simple REST Web Service using [OsloBikeClient](https://github.com/SquareSpheres/OsloBikeClient) to fetch information from https://oslobysykkel.no/api/v1. The webservice supplies the same information as [OsloBikeClient](https://github.com/SquareSpheres/OsloBikeClient) only as a web service instead of a local app.
+
+Changes have been made to [OsloBikeClient](https://github.com/SquareSpheres/OsloBikeClient/blob/webservice/src/main/java/io/github/squarespheres/oslobikes/client/OsloBikeClient.java) to allow exceptions to propagate all the way through the application until caught by the default spring exception handler.
 
 ## Delivery
 
