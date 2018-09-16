@@ -2,6 +2,10 @@
 
 Simple client connecting to https://oslobysykkel.no/api/v1 and fetching station information and station availability.
 
+## Note
+
+Go to the [webservice](https://github.com/SquareSpheres/OsloBikeClient/tree/webservice) branch for a simple REST Web Service using the OsloBikeClient
+
 ## Delivery
 
 For the delivery we were asked to show a list of stations, available locks, and bikes. The class ListAvailableBikesAndLocks only prints station name, available locks, and available bikes. The other properties are ignored for the purpose of the delivery. 
