@@ -8,10 +8,12 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class AbstractOsloBikeClient {
 
-
+    private static final Logger log = Logger.getLogger(AbstractOsloBikeClient.class.getSimpleName());
     private final String API_HOST = "https://oslobysykkel.no/api/v1/";
     private final HttpClient httpClient = HttpClientBuilder.create().build();
 
@@ -33,9 +35,12 @@ public abstract class AbstractOsloBikeClient {
         HttpResponse response = httpClient.execute(request);
 
         if (response.getStatusLine().getStatusCode() != 200) {
-            throw new IOException("Failed to fetch info from host : "
+            String errorMsg = "Failed to fetch info from host : "
                     + response.getStatusLine().getStatusCode() + " - "
-                    + response.getStatusLine().getReasonPhrase());
+                    + response.getStatusLine().getReasonPhrase();
+
+            log.log(Level.WARNING, errorMsg);
+            throw new IOException(errorMsg);
         }
 
         String json = EntityUtils.toString(response.getEntity());
