@@ -1,18 +1,19 @@
-# OsloBikeClient
+# OsloBikeWebService
 
-Simple client connecting to https://oslobysykkel.no/api/v1 and fetching station information and station availability.
+A simple REST Web Service using [OsloBikeCLient](https://github.com/SquareSpheres/OsloBikeClient) to fetch information from https://oslobysykkel.no/api/v1. The webservice supplies the same information as [OsloBikeCLient](https://github.com/SquareSpheres/OsloBikeClient) only as a web service instead of a local app.
 
 ## Delivery
 
-For the delivery we were asked to show a list of stations, available locks, and bikes. The class ListAvailableBikesAndLocks only prints station name, available locks, and available bikes. The other properties are ignored for the purpose of the delivery. 
+For the delivery we were asked to create an application that exposes a REST-based endpoint that displays data from [OsloBikeCLient](https://github.com/SquareSpheres/OsloBikeClient). We were also asked to write tests for [OsloBikeCLient](https://github.com/SquareSpheres/OsloBikeClient)
 
-NOTE : The client is written so that it contains ALL the information supplied by the oslobysykkel API.
-
-Assumed workload 1-2 hours
 
 ## Usage
 
-`java -jar .\OsloBikes.jar "Client ID"`
+1.
+
+`java -jar .\OsloBikesWebService.jar --osloApiId="Client ID"`
+
+where the client-id is for https://oslobysykkel.no/api/v1
 
 alternatively you can package the code yourself using maven
 
@@ -21,27 +22,42 @@ alternatively you can package the code yourself using maven
 and run it the same way as described above.
 Make sure you are in the same directory as the pom.xml
 
+2.
+
+Connect to http://localhost:8080/availability along with header "Client-Identifier". The Client-Identifier can be any value.
+
+## Tests
+
+To run the tests use
+
+`mvn test -D clientId="clientId"`
+
+where the client-id is for https://oslobysykkel.no/api/v1
+
+
 #### result 
 ```
--------Nylandsveien-------
-Number of locks : 5
-Number of bikes : 22
-
--------Bentsebrugata-------
-Number of locks : 20
-Number of bikes : 2
-
--------Hans Nielsen Hauges plass-------
-Number of locks : 17
-Number of bikes : 0
-
--------Sjøsiden vest-------
-Number of locks : 21
-Number of bikes : 25
-
--------St. Hanshaugen park vest-------
-Number of locks : 17
-Number of bikes : 0
+[
+	{
+		"stationName": "Nylandsveien",
+		"numberOfBikes": 13,
+		"numberOfLocks": 15
+	},
+	{
+		"stationName": "Bentsebrugata",
+		"numberOfBikes": 0,
+		"numberOfLocks": 22
+	},
+	{
+		"stationName": "Hans Nielsen Hauges plass",
+		"numberOfBikes": 0,
+		"numberOfLocks": 21
+	},
+	{
+		"stationName": "Sjøsiden vest",
+		"numberOfBikes": 23,
+		"numberOfLocks": 26
+	}
 
 ...
 
