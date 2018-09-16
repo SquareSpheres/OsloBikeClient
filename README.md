@@ -35,7 +35,7 @@ To run the tests use
 where the client-id is for https://oslobysykkel.no/api/v1
 
 
-#### result 
+## Results 
 ```
 [
 	{
